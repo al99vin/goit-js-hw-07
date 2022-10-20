@@ -11,7 +11,6 @@ const marked = galleryItems.map((image)=> `
         <img  class = "gallery__image",
         src = '${image.preview}', 
         alt = '${image.description}', 
-        data-source = '${image.original}'>
 </a></div>`).join(""); 
 const itemsContainer = document.querySelector(".gallery"); 
 itemsContainer.insertAdjacentHTML('afterBegin', marked)
