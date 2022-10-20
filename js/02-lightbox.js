@@ -18,7 +18,7 @@ console.log(galleryItems);
 
 //making modal window
 
-var lightbox = new SimpleLightbox('.gallery__item',{captionsData: 'alt', captionDelay: '250',});
+const lightbox = new SimpleLightbox('.gallery__item',{captionsData: 'alt', captionDelay: '250',});
 
 console.log(lightbox)
 
