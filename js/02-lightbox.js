@@ -10,17 +10,14 @@ const marked = galleryItems.map((image)=> `
         <img  class = "gallery__image",
         src = '${image.preview}', 
         alt = '${image.description}', 
-        data-source = '${image.original}'>
 </a>`).join(""); 
 const itemsContainer = document.querySelector(".gallery"); 
-itemsContainer.insertAdjacentHTML('afterBegin', marked)
-console.log(galleryItems);
+itemsContainer.insertAdjacentHTML('afterBegin', marked);
 
 //making modal window
 
 const lightbox = new SimpleLightbox('.gallery__item',{captionsData: 'alt', captionDelay: '250',});
 
-console.log(lightbox)
 
 
 

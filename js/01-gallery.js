@@ -15,7 +15,6 @@ const marked = galleryItems.map((image)=> `
 </a></div>`).join(""); 
 const itemsContainer = document.querySelector(".gallery"); 
 itemsContainer.insertAdjacentHTML('afterBegin', marked)
-console.log(galleryItems);
 
 //making modal window
 
@@ -29,14 +28,15 @@ function onClick(e){
             <div class = "modal">
                 <img src = "${currentImage.dataset.source}">
             </div>`
-            , {onShow: (instance) => {document.body.addEventListener('keydown', instanceCloseByEscape)}
+            , {onShow: (instance) => {document.addEventListener('keydown', instanceCloseByEscape)}
                 ,
-                onClose: (instance) => {document.body.removeEventListener('keydown', instanceCloseByEscape)},
+                onClose: (instance) => {document.removeEventListener('keydown', instanceCloseByEscape)},
             }
             )
             instance.show();
+            
         function instanceCloseByEscape(e){
-             if(e.key === "Escape")instance.close();
+             if(e.key == "Escape")instance.close();
            }
 }
 itemsContainer.addEventListener('click',  onClick);
