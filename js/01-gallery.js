@@ -28,19 +28,17 @@ function onClick(e){
     const instance = basicLightbox.create(`
             <div class = "modal">
                 <img src = "${currentImage.dataset.source}">
-            </div>`)
-            if(instance.visible()){instance.close()}      //closing instance if instance is active
+            </div>`
+            , {onShow: (instance) => {document.body.addEventListener('keydown', instanceCloseByEscape)}
+                ,
+                onClose: (instance) => {document.body.removeEventListener('keydown', instanceCloseByEscape)},
+            }
+            )
             instance.show();
-
-    document.body.addEventListener('keydown', (e) => {
-         if (e.key === "Escape" && instance){instance.close();}
-        }, 
-        {once: true})  // deleting eventListener
-
-    
-    
+        function instanceCloseByEscape(e){
+             if(e.key === "Escape")instance.close();
+           }
 }
-
 itemsContainer.addEventListener('click',  onClick);
 
   
